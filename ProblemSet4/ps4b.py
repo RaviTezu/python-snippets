@@ -29,41 +29,34 @@ def compChooseWord(hand, wordList, n):
     best_word = None
     # For each word in the wordList
     for word in wordList:
-        # If you can construct the word from your hand
-        # (hint: you can use isValidWord, or - since you don't really need to test if the word is in the wordList - you can make a similar function that omits that test)
         wordhand = {}
-        not_valid = False
-        #check all letter in hand 
+        valid = True
+        #check all letters in word
         for i in word:
             if i in hand.keys():
                 pass
             else:
-                 not_valid = True
+                 valid = False
                  break 
         #check of no. of letter occurences
-        if not not_valid:
+        if valid:
             for i in word:             
-                wordhand[i] = wordhand.get(i,0)+1
+                wordhand[i] = wordhand.get(i,0) + 1
             for k,v in wordhand.items():
                 if hand[k] >= v:
                     pass
                 else:
-                    not_valid = True
-        if not not_valid:
+                    valid = False
+        if valid:
             cur_score = getWordScore(word,n)
+            #print word, cur_score
             if cur_score > max_score:
                best_word = word
-               max = cur_score
-            # Find out how much making that word is worth
-
-
-            # If the score for that word is higher than your best score
-
-                # Update your best score, and best word accordingly
+               max_score = cur_score
     if best_word is not None:
         return best_word
     else: 
-        return "biscuit"
+        return None
     # return the best word you found.
 
 
@@ -130,5 +123,6 @@ if __name__ == '__main__':
     wordList = loadWords()
     #playGame(wordList)
     #print compChooseWord({'a': 1, 'p': 2, 's': 1, 'e': 1, 'l': 1}, wordList, 6)
-    print compChooseWord({'a': 2, 'c': 1, 'b': 1, 't': 1}, wordList, 5)
-
+    #print compChooseWord({'a': 2, 'c': 1, 'b': 1, 't': 1}, wordList, 5)
+    #print compChooseWord({'a': 2, 'e': 2, 'i': 2, 'm': 2, 'n': 2, 't': 2}, wordList, 12)
+    print compChooseWord({'x': 2, 'z': 2, 'q': 2, 'n': 2, 't': 2}, wordList, 12)
