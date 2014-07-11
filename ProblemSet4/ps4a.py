@@ -77,6 +77,14 @@ def getWordScore(word, n):
     returns: int >= 0
     """
     # TO DO ... <-- Remove this comment when you code this function
+    hs = len(word)
+    sum = 0
+    for i in word:
+        sum = sum + SCRABBLE_LETTER_VALUES[i]
+    total = sum * hs
+    if hs == n :
+        total = total + 50
+    return total
 
 
 
@@ -148,8 +156,10 @@ def updateHand(hand, word):
     returns: dictionary (string -> int)
     """
     # TO DO ... <-- Remove this comment when you code this function
-
-
+    uphand = hand.copy()
+    for i in word:
+        uphand[i] = uphand[i] - 1
+    return uphand
 
 #
 # Problem #3: Test word validity
