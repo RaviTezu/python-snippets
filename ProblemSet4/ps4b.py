@@ -1,7 +1,6 @@
 from ps4a import *
 import time
 
-
 #
 #
 # Problem #6: Computer chooses a word
@@ -25,21 +24,46 @@ def compChooseWord(hand, wordList, n):
     """
     # BEGIN PSEUDOCODE <-- Remove this comment when you code this function; do your coding within the pseudocode (leaving those comments in-place!)
     # Create a new variable to store the maximum score seen so far (initially 0)
-
+    max_score = 0 
     # Create a new variable to store the best word seen so far (initially None)  
-
+    best_word = None
     # For each word in the wordList
-
+    for word in wordList:
         # If you can construct the word from your hand
         # (hint: you can use isValidWord, or - since you don't really need to test if the word is in the wordList - you can make a similar function that omits that test)
-
+        wordhand = {}
+        not_valid = False
+        #check all letter in hand 
+        for i in word:
+            if i in hand.keys():
+                pass
+            else:
+                 not_valid = True
+                 break 
+        #check of no. of letter occurences
+        if not not_valid:
+            for i in word:             
+                wordhand[i] = wordhand.get(i,0)+1
+            for k,v in wordhand.items():
+                if hand[k] >= v:
+                    pass
+                else:
+                    not_valid = True
+        if not not_valid:
+            cur_score = getWordScore(word,n)
+            if cur_score > max_score:
+               best_word = word
+               max = cur_score
             # Find out how much making that word is worth
+
 
             # If the score for that word is higher than your best score
 
                 # Update your best score, and best word accordingly
-
-
+    if best_word is not None:
+        return best_word
+    else: 
+        return "biscuit"
     # return the best word you found.
 
 
@@ -104,6 +128,7 @@ def playGame(wordList):
 #
 if __name__ == '__main__':
     wordList = loadWords()
-    playGame(wordList)
-
+    #playGame(wordList)
+    #print compChooseWord({'a': 1, 'p': 2, 's': 1, 'e': 1, 'l': 1}, wordList, 6)
+    print compChooseWord({'a': 2, 'c': 1, 'b': 1, 't': 1}, wordList, 5)
 
