@@ -176,8 +176,23 @@ def isValidWord(word, hand, wordList):
     wordList: list of lowercase strings
     """
     # TO DO ... <-- Remove this comment when you code this function
-
-
+    d = {}
+    for i in word:
+        if i in hand.keys():
+            pass
+        else:
+            return False
+    for i in word:
+        d[i] = d.get(i,0) + 1
+    for k,v in d.items():
+        if hand[k] >= v:
+            pass
+        else:
+            return False
+    if word in wordList:
+        return True
+    else:
+        return False
 #
 # Problem #4: Playing a hand
 #
