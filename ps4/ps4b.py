@@ -1,7 +1,7 @@
 from ps4a import *
 import time
 
-#
+#	
 #
 # Problem #6: Computer chooses a word
 #
@@ -85,6 +85,7 @@ def compPlayHand(hand, wordList, n):
     # TO DO ... <-- Remove this comment when you code this function
     total_score = 0
     user_break = False
+<<<<<<< HEAD:ProblemSet4/ps4b.py
     while sum(hand.values())!=0:
         # Display the hand
         print "Current Hand: ", displayHand(hand)        
@@ -115,6 +116,27 @@ def compPlayHand(hand, wordList, n):
 
 
 
+=======
+    # As long as there are still letters left in the hand:
+    
+    while True and "".join(displayHand(hand)) != "":
+        print "Current Hand: " + "".join(displayHand(hand))
+        ip = compChooseWord(hand, wordList, n) 
+        if ip is not None:
+            wordscore = getWordScore(ip, n)
+            total_score = total_score + wordscore
+            print '"'+ip + '" earned '+ str(wordscore) +' points. Total: ' +str(total_score)+" points."
+            print
+            # Update the hand 
+            hand = updateHand(hand, ip)
+	else:
+            print "Total score: "+str(total_score)+" points."
+            break
+    if "".join(displayHand(hand)) == "":
+        print "Total score: "+str(total_score)+" points."
+
+    
+>>>>>>> fa827d9c53a03d4dbd505d2f9b622323265566d4:ps4/ps4b.py
 #
 #Problem #8: Playing a game
 #
@@ -144,13 +166,41 @@ def playGame(wordList):
     wordList: list (string)
     """
     # TO DO... <-- Remove this comment when you code this function
-    print "playGame not yet implemented." # <-- Remove this when you code this function
-
+    #print "playGame not yet implemented." # <-- Remove this when you code this function
+    last_game = False
+    while True:
+        et = raw_input("Enter n to deal a new hand, r to replay the last hand, or e to end game: ")   
+        if et == "n":
+            eet = raw_input("Enter u to have yourself play, c to have the computer play: ")
+            if eet == "u":
+                ophand = dealHand(HAND_SIZE)
+                playHand(ophand, wordList, HAND_SIZE)
+                last_game = True
+            elif eet == "c":
+                ophand = dealHand(HAND_SIZE)
+                compPlayHand(ophand, wordList, HAND_SIZE)
+                last_game = True
+            else:
+                print "Invalid command."
+        elif et == "r":
+            if last_game:
+                eet2 = raw_input("Enter u to have yourself play, c to have the computer play: ")
+                if eet2 == "u":
+                    playHand(ophand,wordList, HAND_SIZE)
+                elif eet2 == "c":
+                    compPlayHand(ophand, wordList, HAND_SIZE)
+                else:
+                    print "Invalid command."
+            else: 
+                print "You have not played a hand yet. Please play a new hand first!"
+        elif et == "e":
+            break
+        else: 
+            print "Invalid command."
         
 #
 # Build data structures used for entire session and play game
 #
 if __name__ == '__main__':
     wordList = loadWords()
-    #playGame(wordList)
-    compPlayHand({'a': 1, 'p': 2, 's': 1, 'e': 1, 'l': 1}, wordList, 6)
+    playGame(wordList)
