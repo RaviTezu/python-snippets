@@ -83,9 +83,40 @@ def compPlayHand(hand, wordList, n):
     n: integer (HAND_SIZE; i.e., hand size required for additional points)
     """
     # TO DO ... <-- Remove this comment when you code this function
-    
+    total_score = 0
+    user_break = False
+    while sum(hand.values())!=0:
+        # Display the hand
+        print "Current Hand: ", displayHand(hand)        
+        ip = compPlayHand(hand,  wordList, n)
+        if ip == ".":
+            user_break = True
+            break
+            # End the game (break out of the loop)
+        else:   
+        #Otherwise (the input is not a single period):
+            if not isValidWord(ip, hand, wordList):
+            # If the word is not valid:
+                print "Invalid word, please try again."
+                print 
+                # Reject invalid word (print a message followed by a blank line)
+            # Otherwise (the word is valid):
+            else:
+                # Tell the user how many points the word earned, and the updated total score, in one line followed by a blank line
+                wordscore = getWordScore(ip, n)
+                total_score = total_score + wordscore
+                print '"'+ip + '" earned '+ str(wordscore) +' points. Total: ' +str(total_score)
+                # Update the hand 
+                hand = updateHand(hand, ip)
+    if not user_break:
+        print "Run out of letters. Total score: "+ str(total_score)+" points."
+    else: 
+        print "Goodbye! Total score: "+str(total_score)+" points."
+
+
+
 #
-# Problem #8: Playing a game
+#Problem #8: Playing a game
 #
 #
 def playGame(wordList):
@@ -122,7 +153,4 @@ def playGame(wordList):
 if __name__ == '__main__':
     wordList = loadWords()
     #playGame(wordList)
-    #print compChooseWord({'a': 1, 'p': 2, 's': 1, 'e': 1, 'l': 1}, wordList, 6)
-    #print compChooseWord({'a': 2, 'c': 1, 'b': 1, 't': 1}, wordList, 5)
-    #print compChooseWord({'a': 2, 'e': 2, 'i': 2, 'm': 2, 'n': 2, 't': 2}, wordList, 12)
-    print compChooseWord({'x': 2, 'z': 2, 'q': 2, 'n': 2, 't': 2}, wordList, 12)
+    compPlayHand({'a': 1, 'p': 2, 's': 1, 'e': 1, 'l': 1}, wordList, 6)
