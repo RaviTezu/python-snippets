@@ -1,4 +1,5 @@
 #!/usr/bin/python
+#It is a good practice to use print_funtion,
 from __future__ import print_function
 
 def horizon():
@@ -23,6 +24,7 @@ def list_comp():
     ex3 = [i.lower() for i in org1 ]
     print("ex3 = " + str(ex3))
     horizon()
+    #There is no tuple comprehension, however you can use a generator to do so. tuple(x**2 for x in tupe) would do the same!
 
 def dict_comp():
     """ This snippet shows you, how to use dictionary Comprehention"""
