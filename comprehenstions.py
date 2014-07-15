@@ -32,7 +32,7 @@ def dict_comp():
     horizon()
     print("Example-1: Dict comprehension without a condition \norg = {'a':1, 'b':2, 'c':3, 'd':4} and ex1 = {k:v*v for k,v in org.iteritems()}")
     ex1 = {k:v*v for k,v in org.iteritems()}
-    print("ex1: "+ str(ex1))
+    print("ex1: "+ str(ex1)+"\n")
     print("Example-2: Dict comprehension with a condition \norg = {'a':1, 'b':2, 'c':3, 'd':4} and ex2 = {k:v*v for k,v in org.iteritems() if v%2!=0}")
     ex2 = {k:v*v for k,v in org.iteritems() if v%2!=0}
     print("ex2: "+ str(ex2))
