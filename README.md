@@ -1,4 +1,4 @@
 python-scripts
 ==============
 
-Python scripts
+A repo of sample Python scripts
