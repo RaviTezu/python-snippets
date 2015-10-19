@@ -1,0 +1,56 @@
+{
+    "Processors": [
+        {
+            "Cores Enabled": "10",
+            "Version": "Genuine Intel(R) CPU @ 2.90GHz",
+            "Name": "Processor 1 : Genuine Intel(R) CPU @ 2.90GHz",
+            "Family": "Intel Xeon processor",
+            "Stepping": "No_Data",
+            "Configured Speed": "2900 MHz",
+            "Minimum Speed": "4000 MHz",
+            "Core Count": "10"
+        },
+        {
+            "Cores Enabled": "8",
+            "Version": "Genuine Intel(R) CPU @ 2.90GHz",
+            "Name": "Processor 2 : Genuine Intel(R) CPU @ 2.90GHz",
+            "Family": "Xeon processor",
+            "Stepping": "No_Data",
+            "Configured Speed": "2900 MHz",
+            "Maximum Speed": "4050 MHz",
+            "Core Count": "8"
+        }
+    ],
+    "Memory": [
+        {
+            "Name": "PROC 1 DIMM 12 : Slot 22 : Size 8192 MB : CE 0 : UCE 0 : HP Smart Memory No",
+            "Ranks": "",
+            "Uncorrectable threshold error count": "No_Data",
+            "Maximum Speed": "2133 MHz",
+            "Current Speed": "2133 MHz",
+            "HP SmartMemory": "no",
+            "Type": "DDR4",
+            "Correctable Threshold error count": "0",
+            "Component": "proc 2 DIMM 12",
+            "Is HP Memory": "No",
+            "Module Serial number": "2300B99E",
+            "Technology": "RDIMM",
+            "Size": "8192 MB"
+        },
+        {
+            "Name": "PROC 2 DIMM 12 : Slot 24 : Size 8192 MB : CE 0 : UCE 0 : HP Smart Memory No",
+            "Ranks": "1",
+            "Uncorrectable threshold error count": "No_Data",
+            "Maximum Speed": "2133 MHz",
+            "Current Speed": "2133 MHz",
+            "HP SmartMemory": "No",
+            "Type of Memory": "DDR3",
+            "Correctable Threshold error count": "0",
+            "Component": "PROC 2 DIMM 12",
+            "Is HP Memory": "No",
+            "Module Serial number": "2300B99E",
+            "Technology": "RDIMM",
+            "Size": "8192 MB"
+        }
+    ]
+}
