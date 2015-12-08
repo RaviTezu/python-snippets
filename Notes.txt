@@ -1,6 +1,7 @@
 ## Fluent Python Notes:
 
 - The doctest module searches for pieces of text that look like interactive Python sessions, and then executes those sessions to verify that they work exactly as shown.
+
 - The special methods(__gititem__) in Python are also known as dunder methods.
 
 - Named tuple example:
@@ -18,4 +19,8 @@ Card(rank='7', suit='diamonds')
 4
 ```
 
-- 
+- In Python code, line breaks are ignored inside pairs of [] , {} , or () . So you can build multiline lists, listcomps, genexps, dictionaries and the like without using
+  the ugly \ line continuation escape.
+
+- In Python 2.x, variables assigned in the for clauses in list comprehensions were set in the surrounding scope, sometimes with tragic consequences.
+  Listcomps No Longer Leak Their Variables in Python3
