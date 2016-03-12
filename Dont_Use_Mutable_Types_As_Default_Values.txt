@@ -1,0 +1,26 @@
+Don't Use Mutable Types As Default Values!
+
+It is dangerous to use a mutable type (eg a list, dictionary) as a default value, because on repeated calls to the function, a new default value will not be allocated!
+
+Check out the following sample code:
+def f(x, myList = []):
+    myList.append(x)
+    return myList
+>>> f(6)
+[6]
+>>> f(10)
+[6, 10]
+
+
+The correct, "Pythonic" way to write this code would be:
+def f(x, myList = None):
+    if myList == None:
+        # This WILL allocate a new list on every call to the function.
+        myList = []
+    myList.append(x)
+    return myList
+>>> f(6)
+[6]
+>>> f(10)
+[10]
+

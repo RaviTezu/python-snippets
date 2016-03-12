@@ -24,3 +24,8 @@ Card(rank='7', suit='diamonds')
 
 - In Python 2.x, variables assigned in the for clauses in list comprehensions were set in the surrounding scope, sometimes with tragic consequences.
   Listcomps No Longer Leak Their Variables in Python3
+
+- To initialize tuples, arrays, and other types of sequences, you could also start from a listcomp, but a genexp saves memory because it yields items one by one using the iterator
+  protocol instead of building a whole list just to feed another constructor. Genexps use the same syntax as listcomps, but are enclosed in parentheses rather than brackets.
+
+-
